@@ -102,7 +102,6 @@ const AdvanceSearch = (props: SearchProps) => {
       values.postcode = undefined;
     }
 
-    
     console.log("Received values of form: ", values);
     // for (const [key, value] of Object.entries(values)) {
     //   console.log(`${key}: ${value}`);
@@ -129,9 +128,9 @@ const AdvanceSearch = (props: SearchProps) => {
         type: searchParams.type,
         tag: searchParams.tag,
       });
-      
+
       console.log(res);
-      
+
       // @ts-ignore
       props.setCompanyList(res.list);
     } catch (error) {
@@ -206,8 +205,7 @@ const AdvanceSearch = (props: SearchProps) => {
               type: "string",
               message: "The input is not valid sector!",
             },
-          ]}
-          hasFeedback>
+          ]}>
           <Input />
         </Form.Item>
 
@@ -219,8 +217,7 @@ const AdvanceSearch = (props: SearchProps) => {
               type: "string",
               message: "The input is not valid!",
             },
-          ]}
-          hasFeedback>
+          ]}>
           <Input />
         </Form.Item>
       </Flex>
