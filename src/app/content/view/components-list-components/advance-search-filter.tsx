@@ -57,14 +57,14 @@ const stateOptions = [
 ];
 
 const formItemLayout = {
-  labelCol: {
-    xs: { span: 24 },
-    sm: { span: 12 },
-  },
-  wrapperCol: {
-    xs: { span: 24 },
-    sm: { span: 12 },
-  },
+  // labelCol: {
+  //   xs: { span: 24 },
+  //   sm: { span: 12 },
+  // },
+  // wrapperCol: {
+  //   xs: { span: 24 },
+  //   sm: { span: 12 },
+  // },
 };
 
 const tailFormItemLayout = {
@@ -153,10 +153,11 @@ const AdvanceSearch = (props: SearchProps) => {
       onFinish={onFinish}
       initialValues={{
         state: "all",
+        sector: "private",
       }}
       style={{ maxWidth: "100%" }}
       scrollToFirstError>
-      <Flex vertical={false} gap={25}>
+      <Flex vertical={true} gap={5}>
         <Form.Item
           name="q"
           label="keyword"
@@ -165,7 +166,10 @@ const AdvanceSearch = (props: SearchProps) => {
               type: "string",
               message: "The input is not valid keyword!",
             },
-          ]}>
+          ]}
+          style={{
+            width: 500,
+          }}>
           <Input />
         </Form.Item>
 
@@ -177,36 +181,45 @@ const AdvanceSearch = (props: SearchProps) => {
               type: "number",
               message: "The input must be number!",
             },
-          ]}>
+          ]}
+          style={{
+            width: 500,
+          }}>
           <InputNumber />
         </Form.Item>
 
-        <Form.Item name="state" label="State">
+        <Form.Item
+          name="state"
+          label="State"
+          style={{
+            width: 500,
+          }}>
           <Select
             // mode="multiple"
             allowClear
-            placeholder="select the State"
-            style={{
-              width: 500,
-            }}>
+            placeholder="select the State">
             {stateOptions.map((state) => {
               return <Option value={state.value}>{state.label}</Option>;
             })}
           </Select>
         </Form.Item>
-      </Flex>
 
-      <Flex vertical={false} gap={25}>
         <Form.Item
           name="sector"
           label="Sector"
-          rules={[
-            {
-              type: "string",
-              message: "The input is not valid sector!",
-            },
-          ]}>
-          <Input />
+          style={{
+            width: 500,
+          }}>
+          <Select
+            // mode="multiple"
+            allowClear
+            placeholder="select the Sector"
+            style={{
+              width: 500,
+            }}>
+            <Option value={"private"}>Private</Option>
+            <Option value={"public"}>Public</Option>
+          </Select>
         </Form.Item>
 
         <Form.Item
@@ -217,7 +230,10 @@ const AdvanceSearch = (props: SearchProps) => {
               type: "string",
               message: "The input is not valid!",
             },
-          ]}>
+          ]}
+          style={{
+            width: 500,
+          }}>
           <Input />
         </Form.Item>
       </Flex>
