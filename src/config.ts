@@ -1,1 +1,1 @@
-export const APP_DOMAIN = 'http://124.190.101.189:9001';
+export const APP_DOMAIN = 'http://67.219.110.43:8102';
